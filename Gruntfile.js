@@ -226,6 +226,7 @@ module.exports = function(grunt) {
     // Default task(s).
     grunt.registerTask('default', ['serve']);
 
+    grunt.registerTask('make', ['clean:serve','copy:serve','includes:serve']);
     grunt.registerTask('serve', ['clean:serve','sass:serve','copy:serve','includes:serve','jshint:beforeconcat','string-replace:sassfiles','connect','watch']);
 
     grunt.registerTask('build', ['clean:build','sass:build','copy:build','jshint:beforeconcat', 'concat:js','uglify:jsmin','concat:css','cssmin:compress','includes:build','string-replace:jsfiles','string-replace:cssfiles', 'clean:sass']);
