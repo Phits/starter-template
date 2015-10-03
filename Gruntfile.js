@@ -46,7 +46,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: "static",
-                        src: ['img/**', 'fonts/**', 'js/**'],
+                        src: ['img/**', 'fonts/**', 'js/**', 'css/bootstrap.css'],
                         dest: 'serve'
                     }
                 ]
