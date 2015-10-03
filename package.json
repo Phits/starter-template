@@ -1,0 +1,33 @@
+{
+  "name": "starter-template",
+  "repository": "https://github.com/Phits/starter-template",
+  "description": "",
+  "version": "0.0.1",
+  "author": {
+    "name": "John Fitzpatrick",
+    "email": "john@fitz.com",
+    "url": "https://fitz.com/starter-template/"
+  },
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.10.26"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-clean": "0.5.0",
+    "grunt-contrib-concat": "0.3.0",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-copy": "0.4.1",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-contrib-jshint": "0.11.3",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-ftpush": "0.3.3",
+    "grunt-git": "0.2.14",
+    "grunt-includes": "~0.4.0",
+    "grunt-mkdir": "0.1.1",
+    "grunt-processhtml": "0.3.3",
+    "grunt-string-replace": "~0.2.7"
+  }
+}
