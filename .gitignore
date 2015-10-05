@@ -1,5 +1,5 @@
 
-/build/*
+/dist/*
 /serve/*
 /node_modules/*
 /.grunt/*

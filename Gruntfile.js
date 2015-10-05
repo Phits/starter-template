@@ -6,12 +6,12 @@ module.exports = function(grunt) {
                 src: 'serve',
                 force: true
             },
-            build: {
-                src: 'build',
+            dist: {
+                src: 'dist',
                 force: true
             },
             sass: {
-                src: ['build/css/styles.css','build/css/styles.css.map'],
+                src: ['dist/css/styles.css','dist/css/styles.css.map'],
                 force: true
             },
         },
@@ -27,13 +27,13 @@ module.exports = function(grunt) {
                   }
               ]
             },
-             build: {
+             dist: {
               files: [
                   {
                     expand: true,
                     cwd: 'static',
                     src: ['css/*.scss'],
-                    dest: 'build',
+                    dest: 'dist',
                     ext: '.css'
                   }
               ]
@@ -51,13 +51,13 @@ module.exports = function(grunt) {
                     }
                 ]
             },
-            build: {
+            dist: {
                 files: [
                     {
                         expand: true,
                         cwd: "static",
                         src: ['img/**', 'fonts/**','*.html', 'js/bootstrap.min.js'],
-                        dest: 'build'
+                        dest: 'dist'
                     }
                 ]
             },
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
                         expand: true,
                         cwd: "static/includes",
                         src: ['**'],
-                        dest: 'build'
+                        dest: 'dist'
                     }
                 ]
             }
@@ -81,10 +81,10 @@ module.exports = function(grunt) {
                     flatten: true
                 }
             },
-             build: {
+             dist: {
                 cwd: 'static',
                 src: [ '*.html' ],
-                dest: 'build/',
+                dest: 'dist/',
                 options: {
                     flatten: true
                 }
@@ -121,16 +121,16 @@ module.exports = function(grunt) {
         concat: {
             js: {
                 src: [['static/js/jquery.history.js', 'static/js/main.js', 'js/ie10-viewport-bug-workaround.js']],  //*** change this to include all your js files
-                dest: 'build/js/main.min.js'
+                dest: 'dist/js/main.min.js'
             },
             css: {
-                src: [['static/css/bootstrap.css', 'build/css/styles.css']], //*** change this to include all your css files
-                dest: 'build/css/main.min.css'
+                src: [['static/css/bootstrap.css', 'dist/css/styles.css']], //*** change this to include all your css files
+                dest: 'dist/css/main.min.css'
             }
         },
         jshint: {
             beforeconcat: [['static/js/main.js']],
-            afterconcat: ['build/js/main.min.js']
+            afterconcat: ['dist/js/main.min.js']
         },
         uglify: {
             options: {
@@ -138,21 +138,21 @@ module.exports = function(grunt) {
             },
             jsmin: {
                 files: {
-                    'build/js/main.min.js':  ['build/js/main.min.js']
+                    'dist/js/main.min.js':  ['dist/js/main.min.js']
                 }
             }
         },
         cssmin: {
             compress: {
                 files: {
-                    'build/css/main.min.css': ['build/css/main.min.css']
+                    'dist/css/main.min.css': ['dist/css/main.min.css']
                 }
             }
         },
         'string-replace': {
             jsfiles: {
                 files: {
-                    'build/index.html': 'build/index.html'
+                    'dist/index.html': 'dist/index.html'
                 },
                 options: {
                     replacements: [
@@ -173,7 +173,7 @@ module.exports = function(grunt) {
             },
             cssfiles: {
                 files: {
-                    'build/index.html': 'build/index.html'
+                    'dist/index.html': 'dist/index.html'
                 },
                 options: {
                     replacements: [
@@ -229,7 +229,7 @@ module.exports = function(grunt) {
     grunt.registerTask('make', ['clean:serve','sass:serve', 'copy:serve','includes:serve','string-replace:sassfiles']);
     grunt.registerTask('serve', ['clean:serve','sass:serve','copy:serve','includes:serve','jshint:beforeconcat','string-replace:sassfiles','connect','watch']);
 
-    grunt.registerTask('build', ['clean:build','sass:build','copy:build','jshint:beforeconcat', 'concat:js','uglify:jsmin','concat:css','cssmin:compress','includes:build','string-replace:jsfiles','string-replace:cssfiles', 'clean:sass']);
+    grunt.registerTask('dist', ['clean:dist','sass:dist','copy:dist','jshint:beforeconcat', 'concat:js','uglify:jsmin','concat:css','cssmin:compress','includes:dist','string-replace:jsfiles','string-replace:cssfiles', 'clean:sass']);
 };
 
 
