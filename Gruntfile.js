@@ -20,7 +20,7 @@ module.exports = function(grunt) {
               files: [
                   {
                     expand: true,
-                    cwd: 'static',
+                    cwd: 'src',
                     src: ['css/*.scss'],
                     dest: 'serve',
                     ext: '.css'
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
               files: [
                   {
                     expand: true,
-                    cwd: 'static',
+                    cwd: 'src',
                     src: ['css/*.scss'],
                     dest: 'dist',
                     ext: '.css'
@@ -39,13 +39,13 @@ module.exports = function(grunt) {
               ]
             }
         },
-        //Copy static files
+        //Copy src files
         copy: {
             serve: {
                 files: [
                     {
                         expand: true,
-                        cwd: "static",
+                        cwd: "src",
                         src: ['img/**', 'fonts/**', 'js/**', 'css/bootstrap.css'],
                         dest: 'serve'
                     }
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: "static",
+                        cwd: "src",
                         src: ['img/**', 'fonts/**','*.html', 'js/bootstrap.min.js'],
                         dest: 'dist'
                     }
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: "static/includes",
+                        cwd: "src/includes",
                         src: ['**'],
                         dest: 'dist'
                     }
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
         },
         includes: {
             serve: {
-                cwd: 'static',
+                cwd: 'src',
                 src: [ '*.html' ],
                 dest: 'serve/',
                 options: {
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
                 }
             },
              dist: {
-                cwd: 'static',
+                cwd: 'src',
                 src: [ '*.html' ],
                 dest: 'dist/',
                 options: {
@@ -114,22 +114,22 @@ module.exports = function(grunt) {
                 tasks: ['jshint:gruntfile']
             },
             src: {
-                files: ['static/**/*.*'],
+                files: ['src/**/*.*'],
                 tasks: ['make']
             }
         },
         concat: {
             js: {
-                src: [['static/js/jquery.history.js', 'static/js/main.js', 'js/ie10-viewport-bug-workaround.js']],  //*** change this to include all your js files
+                src: [['src/js/jquery.history.js', 'src/js/main.js', 'js/ie10-viewport-bug-workaround.js']],  //*** change this to include all your js files
                 dest: 'dist/js/main.min.js'
             },
             css: {
-                src: [['static/css/bootstrap.css', 'dist/css/styles.css']], //*** change this to include all your css files
+                src: [['src/css/bootstrap.css', 'dist/css/styles.css']], //*** change this to include all your css files
                 dest: 'dist/css/main.min.css'
             }
         },
         jshint: {
-            beforeconcat: [['static/js/main.js']],
+            beforeconcat: [['src/js/main.js']],
             afterconcat: ['dist/js/main.min.js']
         },
         uglify: {
